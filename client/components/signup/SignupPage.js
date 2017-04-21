@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-class Greetings extends React.Component{
+class SignupPage extends React.Component{
   render(){
     return(
       <div className="jumbotron">
-        <h1>Hi</h1>
+        <h1>Sign UP</h1>
       </div>
     );
   }
 }
 
-export default Greetings;
+export default SignupPage;
