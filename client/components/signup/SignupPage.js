@@ -21,5 +21,9 @@ SignupPage.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
 }
 
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
 
 export default connect(null , {userSignupRequest})(SignupPage);

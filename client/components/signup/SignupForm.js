@@ -42,7 +42,9 @@ onSubmit(e){
    if(this.isValid()){
      this.setState({errors:{}, isLoading: true});
      this.props.userSignupRequest(this.state).then(
-       () => {},
+       () => {
+         this.context.router.push('/');
+       },
        ({ data }) => this.setState({errors: data, isLoading: false })
      );
    }
@@ -71,7 +73,7 @@ onSubmit(e){
           <TextFieldGroup
             error={errors.email}
             label="Email"
-            onChange={this.email}
+            onChange={this.onChange}
             value={this.state.email}
             field="email"
           />
@@ -82,6 +84,7 @@ onSubmit(e){
             onChange={this.onChange}
             value={this.state.password}
             field="password"
+            type= "password"
           />
 
           <TextFieldGroup
@@ -90,6 +93,7 @@ onSubmit(e){
             onChange={this.onChange}
             value={this.state.passwordConfirmation}
             field="passwordConfirmation"
+            type= "password"
           />
 
 
