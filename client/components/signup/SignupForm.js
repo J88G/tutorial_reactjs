@@ -43,6 +43,10 @@ onSubmit(e){
      this.setState({errors:{}, isLoading: true});
      this.props.userSignupRequest(this.state).then(
        () => {
+         this.props.addFlashMessage({
+           type: 'success',
+           text: 'You have signup'
+         })
          this.context.router.push('/');
        },
        ({ data }) => this.setState({errors: data, isLoading: false })
@@ -60,8 +64,6 @@ onSubmit(e){
     return(
       <form onSubmit={this.onSubmit}>
         <h1>JOIN</h1>
-
-
           <TextFieldGroup
             error={errors.username}
             label="Username"
@@ -96,9 +98,6 @@ onSubmit(e){
             type= "password"
           />
 
-
-
-
                 <div className={classnames("form-group", {'has-error':errors.timezone})}>
                   <label className="control-label"> Timezone </label>
                   <select value={this.state.timezone} onChange={this.onChange}  name="timezone" className="form-control">
@@ -108,9 +107,6 @@ onSubmit(e){
                   {errors.timezone && <span className="help-block">{errors.timezone}</span> }
                 </div>
 
-
-
-
         <div className="form-group">
           <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
             Sign up
@@ -119,6 +115,16 @@ onSubmit(e){
       </form>
     );
   }
+}
+
+
+SignupForm.propTypes = {
+  userSignupRequest: React.PropTypes.func.isRequired,
+  addFlashMessage: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm;
