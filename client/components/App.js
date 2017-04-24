@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
+import FlashMessagesList from './flash/FlashMessagesList';
 
 class App extends React.Component  {
   render (){
@@ -8,8 +9,11 @@ class App extends React.Component  {
       <div>
 
       <NavigationBar />
+
       <div className="container">
+
         <div className="jumbotron">
+          <FlashMessagesList />
           {this.props.children}
           </div>
         </div>

@@ -14,7 +14,7 @@ setTimeout(() => {
     }else{
       res.status(400).json(errors);
     }
-  },2000);
+  },0);
 });
 
 
